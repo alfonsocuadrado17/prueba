@@ -6,8 +6,5 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     localStorage.setItem('User', profile.getEmail());
     window.location = "index.html";
+    document.getElementById("texto").innerHTML = profile.getName();
 }
-
-let profile = googleUser.getBasicProfile();
-
-document.getElementById("texto").innerHTML = profile.getName();
