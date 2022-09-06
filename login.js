@@ -1,11 +1,13 @@
-function googleRedirect() {
-    if (googleUser.getBasicProfile()) {
-        let profile = googleUser.getBasicProfile();
-        localStorage.setItem('User', profile.getEmail());
-        window.location = "index.html";
-    }
+function onSignIn(googleUser) {
+    let profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    localStorage.setItem('User', profile.getEmail());
+    window.location = "index.html";
 }
 
 let profile = googleUser.getBasicProfile();
 
-document.getElementById("texto").innerHTML = profile.getEmail();
+document.getElementById("texto").innerHTML = profile.getName();
