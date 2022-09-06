@@ -1,4 +1,4 @@
-function googleLogin() {
+/* function googleLogin() {
     if (googleUser.getBasicProfile()) {
         let profile = googleUser.getBasicProfile();
         localStorage.setItem('User', profile.getEmail());
@@ -6,3 +6,4 @@ function googleLogin() {
     }
 }
 
+ */
