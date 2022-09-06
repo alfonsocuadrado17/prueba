@@ -1,4 +1,4 @@
-function onSignIn(googleUser) {
+/* function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
@@ -7,4 +7,4 @@ function onSignIn(googleUser) {
     localStorage.setItem('User', profile.getEmail());
     window.location = "index.html";
     document.getElementById("texto").innerHTML = profile.getName();
-}
+} */

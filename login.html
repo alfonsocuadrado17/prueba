@@ -5,12 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba</title>
+    <title>Prueba login</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+    <script>
+        function handleCredentialResponse(response) {
+            const data = jwt_decode(response.credential);
+            localStorage.setItem("User", data.email);
+            window.location = "index.html";
+        }
+
+        window.onload = function () {
+
+            google.accounts.id.initialize({
+                client_id: "544223317835-fo43g0curb0lq2le14e8fj0i182l9hgq.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById("buttonDiv"), {
+                theme: "filled_blue",
+                size: "large",
+                type: "standard",
+                shape: "pill",
+                text: "$ {button.text}",
+                locale: "es-419",
+                logo_alignment: "left"
+            }
+            );
+
+            google.accounts.id.prompt();
+        }
+    </script>
 </head>
 
 <body>
     <h1>Login con Google</h1>
-    <p id="texto"></p>
+    <div id="buttonDiv"></div>
+    <!-- <p id="texto"></p>
     <div class="googlelogin container" style="width:20%; margin-top:30px">
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <div id="g_id_onload" data-client_id="544223317835-fo43g0curb0lq2le14e8fj0i182l9hgq.apps.googleusercontent.com"
@@ -19,7 +52,7 @@
         <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
             data-text="$ {button.text}" data-size="large" data-locale="es-419" data-logo_alignment="left"></div>
     </div>
-    <script src="login.js"></script>
+    <script src="login.js"></script> -->
 </body>
 
 </html>
