@@ -9,5 +9,3 @@ function googleRedirect() {
 let profile = googleUser.getBasicProfile();
 
 document.getElementById("texto").innerHTML = profile.getEmail();
-
-localStorage.setItem("User", profile.getEmail());
